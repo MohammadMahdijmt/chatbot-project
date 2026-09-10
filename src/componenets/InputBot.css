@@ -1,0 +1,23 @@
+.input-message {
+    padding: 12px 20px;
+    border-radius: 10px;
+    flex-grow: 1;
+    font-size: 16px;
+    border: 2px solid gray;
+}
+
+.button-message {
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: gray;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.form-message {
+    display: flex;
+    margin: 10px;
+    gap: 5px;
+}
