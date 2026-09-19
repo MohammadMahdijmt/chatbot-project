@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react"
 import { ChatBotApp } from "./ChatBotApp"
-import './ChatMessages.css'
+// import './ChatMessages.css'
 function ChatMessages({ chatMessages }) {
 
     const chatRef = useRef(null)
@@ -14,7 +14,7 @@ function ChatMessages({ chatMessages }) {
     }, [chatMessages])
 
     return (
-        <div className="chat-message-container" ref={chatRef}>
+        <div className="grow mt-[10px] overflow-scroll scrollbar-none" ref={chatRef}>
             {
                 chatMessages.map((chat) => {
                     return (

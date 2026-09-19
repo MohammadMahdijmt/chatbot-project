@@ -1,4 +1,4 @@
-.user-message {
+/* .user-message {
     display: flex;
     justify-content: end;
     align-items: start;
@@ -18,7 +18,7 @@
 }
 
 .message-u-sent {
-    background-color: rgba(0, 0, 0, 0.223);
+    background-color: #00000039;
     display: flex;
     flex-direction: column;
     padding: 10px;
@@ -30,5 +30,5 @@
 
 .chat-time {
     margin-top: 7px;
-    color: rgb(0, 128, 98);
-}
+    color: #008062;
+} */

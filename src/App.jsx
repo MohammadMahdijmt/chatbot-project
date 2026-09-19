@@ -1,10 +1,15 @@
 import { useState, useEffect } from 'react'
 import { InputBot } from './componenets/InputBot'
 import ChatMessages from './componenets/ChatMessages';
-import './App.css'
+// import './App.css'
 import { chatbot } from 'supersimpledev';
+import clsx from 'clsx';
 
 function App() {
+  const [theme, setTheme] = useState("light");
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  }
   useEffect(() => {
     chatbot.addResponses({
       "goodbye": "goodbye babe",
@@ -41,18 +46,27 @@ function App() {
 
   );
   return (
-    <div className="full-container">
-      {chatMessages.length === 0 && <p className="welcome-message">
-        WELCOME TO MY CHATBOT YOU CAN SEND MESSAGE BY USING THE TEXTBOX BELOW..</p>}
+    <div className={clsx({ "bg-gray-800 **:text-white": theme === "dark", "bg-white text-black": theme === "light" })} >
+      <div className="mx-auto max-w-200 h-screen flex flex-col overflow-hidden text-sm md:text-[16px] ">
+        <div className="flex flex-col md:flex-row  mt-5 gap-3 md:gap-8 items-center">
+          <span onClick={toggleTheme} className='animate-spin text-[30px] md:text-[40px] cursor-pointer '>
+            {theme === "light" ? "☀️" : "🌙"}
+          </span>
+          {chatMessages.length === 0 && <p className="text-background text-center">
+            WELCOME TO MY CHATBOT YOU CAN SEND MESSAGE BY USING THE TEXTBOX BELOW. </p>}
 
-      <ChatMessages
-        chatMessages={chatMessages}
-        setChatMessages={setChatMessages}
-      />
-      <InputBot
-        chatMessages={chatMessages}
-        setChatMessages={setChatMessages}
-      />
+        </div>
+
+
+        <ChatMessages
+          chatMessages={chatMessages}
+          setChatMessages={setChatMessages}
+        />
+        <InputBot
+          chatMessages={chatMessages}
+          setChatMessages={setChatMessages}
+        />
+      </div>
     </div>
   );
 }
